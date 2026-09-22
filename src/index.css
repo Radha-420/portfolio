@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--theme-bg);
+  --color-surface: var(--theme-surface);
+  --color-primary: var(--theme-text-primary);
+  --color-secondary: var(--theme-text-secondary);
+  --color-accent: var(--theme-accent);
+  --color-accent-hover: var(--theme-accent-hover);
+  --color-accent-soft: var(--theme-accent-soft);
+  --color-border-theme: var(--theme-border);
+}
+
+@layer base {
+  :root {
+    --theme-bg: #F8FAF9;
+    --theme-surface: #FFFFFF;
+    --theme-text-primary: #17201D;
+    --theme-text-secondary: #64706B;
+    --theme-accent: #167C80;
+    --theme-accent-hover: #116467;
+    --theme-accent-soft: #DDF3F1;
+    --theme-border: #E3E9E7;
+  }
+  
+  :root.dark {
+    --theme-bg: #0D1412;
+    --theme-surface: #151F1C;
+    --theme-text-primary: #F2F7F5;
+    --theme-text-secondary: #A7B5B0;
+    --theme-accent: #38B2AC;
+    --theme-accent-hover: #4FC7C0;
+    --theme-accent-soft: #163A37;
+    --theme-border: #26332F;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-bg text-primary antialiased selection:bg-accent-soft selection:text-accent transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    @apply bg-surface/90 backdrop-blur-md border-b border-border-theme shadow-sm;
+  }
+  
+  .glass-card {
+    @apply bg-surface border border-border-theme shadow-sm hover:shadow-md transition-all duration-300;
+  }
+}
