@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -44,11 +45,13 @@ const Contact = () => {
     }
   };
 
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="contact" className="py-24 bg-surface relative">
+    <section ref={ref} id="contact" className={`force-dark py-24 bg-bg relative transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-primary mb-4">Let's Build Something Together</h2>
+          <h2 className="text-3xl font-bold text-primary mb-4">Let's <span className="text-accent">Build Something</span> Together</h2>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
 
@@ -149,7 +152,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center px-6 py-4 rounded-xl bg-accent text-white font-medium hover:bg-accent-hover transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                  className="w-full flex items-center justify-center px-6 py-4 rounded-xl bg-accent text-[#18181B] font-medium hover:bg-accent-hover transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                 >
                   {isSubmitting ? (
                     <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>

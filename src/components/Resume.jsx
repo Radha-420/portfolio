@@ -1,8 +1,11 @@
 import { FileText, Download } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Resume = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="py-24 bg-accent-soft relative overflow-hidden transition-colors duration-300">
+    <section ref={ref} className={`py-24 bg-accent-soft relative overflow-hidden transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-surface opacity-40 rounded-full blur-3xl -mr-32 -mt-32"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-surface opacity-40 rounded-full blur-3xl -ml-32 -mb-32"></div>
@@ -23,7 +26,7 @@ const Resume = () => {
         <a 
           href="/my%20resume.pdf" 
           download="Radha_Krishna_Resume.pdf"
-          className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full bg-accent text-white hover:bg-accent-hover hover:scale-105 transition-all shadow-md hover:shadow-lg"
+          className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full bg-accent text-[#18181B] hover:bg-accent-hover hover:scale-105 transition-all shadow-md hover:shadow-lg"
         >
           Download My Resume
           <Download size={20} className="ml-3" />

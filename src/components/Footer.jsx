@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-surface text-primary py-12 relative border-t border-border-theme transition-colors duration-300">
+    <footer className="force-dark bg-bg text-primary py-12 relative border-t border-border-theme transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           

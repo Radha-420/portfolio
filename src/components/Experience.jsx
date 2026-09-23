@@ -1,4 +1,5 @@
 import { Briefcase } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Experience = () => {
   const experiences = [
@@ -31,15 +32,17 @@ const Experience = () => {
     }
   ];
 
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section id="experience" className="py-24 bg-surface relative">
+    <section ref={ref} id="experience" className={`py-24 bg-surface relative transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-primary mb-4">Experience</h2>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border-theme before:to-transparent">
+        <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-subtle-gold before:to-transparent">
           {experiences.map((exp, index) => (
             <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
               

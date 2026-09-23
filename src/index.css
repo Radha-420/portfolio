@@ -9,29 +9,32 @@
   --color-accent-hover: var(--theme-accent-hover);
   --color-accent-soft: var(--theme-accent-soft);
   --color-border-theme: var(--theme-border);
+  --color-subtle-gold: var(--theme-subtle-gold);
 }
 
 @layer base {
   :root {
-    --theme-bg: #F8FAF9;
+    --theme-bg: #FAF9F6;
     --theme-surface: #FFFFFF;
-    --theme-text-primary: #17201D;
-    --theme-text-secondary: #64706B;
-    --theme-accent: #167C80;
-    --theme-accent-hover: #116467;
-    --theme-accent-soft: #DDF3F1;
-    --theme-border: #E3E9E7;
+    --theme-text-primary: #18181B;
+    --theme-text-secondary: #68645D;
+    --theme-accent: #C69214;
+    --theme-accent-hover: #A97808;
+    --theme-accent-soft: #FFF8E7;
+    --theme-border: #E7E2D8;
+    --theme-subtle-gold: #E8C766;
   }
   
-  :root.dark {
-    --theme-bg: #0D1412;
-    --theme-surface: #151F1C;
-    --theme-text-primary: #F2F7F5;
-    --theme-text-secondary: #A7B5B0;
-    --theme-accent: #38B2AC;
-    --theme-accent-hover: #4FC7C0;
-    --theme-accent-soft: #163A37;
-    --theme-border: #26332F;
+  :root.dark, .force-dark {
+    --theme-bg: #0D0D0C;
+    --theme-surface: #171614;
+    --theme-text-primary: #F5F2EA;
+    --theme-text-secondary: #A9A49A;
+    --theme-accent: #E3B341;
+    --theme-accent-hover: #F0C75E;
+    --theme-accent-soft: #332A14;
+    --theme-border: #2A2823;
+    --theme-subtle-gold: #8F701F;
   }
 
   html {
@@ -51,4 +54,9 @@
   .glass-card {
     @apply bg-surface border border-border-theme shadow-sm hover:shadow-md transition-all duration-300;
   }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(12deg); }
+  100% { transform: translateX(150%) skewX(12deg); }
 }

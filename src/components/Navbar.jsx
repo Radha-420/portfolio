@@ -41,9 +41,10 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-secondary hover:text-accent transition-colors"
+                  className="relative text-sm font-medium text-secondary hover:text-accent transition-colors group"
                 >
                   {link.name}
+                  <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-accent group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
                 </a>
               ))}
             </div>
@@ -62,7 +63,7 @@ const Navbar = ({ theme, toggleTheme }) => {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition-colors">
                 <FaLinkedin size={18} />
               </a>
-              <a href="/my%20resume.pdf" download="Radha_Krishna_Resume.pdf" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-full transition-colors shadow-sm">
+              <a href="/my%20resume.pdf" download="Radha_Krishna_Resume.pdf" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[#18181B] bg-accent hover:bg-accent-hover rounded-full transition-colors shadow-sm">
                 <FileText size={16} className="mr-2" />
                 Resume
               </a>

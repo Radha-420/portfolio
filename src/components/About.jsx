@@ -1,8 +1,10 @@
 import { GraduationCap, Code, MapPin } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const About = () => {
+  const { ref, isVisible } = useScrollReveal();
   return (
-    <section id="about" className="py-24 bg-surface relative">
+    <section ref={ref} id="about" className={`py-24 bg-surface relative transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-primary mb-4">About Me</h2>
