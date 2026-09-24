@@ -11,6 +11,8 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+import BackgroundAnimation from './components/BackgroundAnimation';
+
 function App() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -38,7 +40,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans scroll-smooth transition-colors duration-300">
+    <div className="min-h-screen font-sans scroll-smooth transition-colors duration-300 relative z-0">
+      <BackgroundAnimation />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
